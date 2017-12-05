@@ -1,6 +1,6 @@
 {
   "name": "bollon",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A Vue.js UI Library",
   "author": "my9074 <313231068@qq.com>",
   "private": true,
@@ -29,6 +29,8 @@
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^5.0.1",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
     "css-loader": "^0.28.0",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^3.19.0",
@@ -73,10 +75,14 @@
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
+    "vue-markdown-loader": "^2.2.3",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0"
+  },
+  "peerDependencies": {
+    "vue": "^2.5.2"
   },
   "engines": {
     "node": ">= 4.0.0",

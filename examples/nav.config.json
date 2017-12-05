@@ -1,0 +1,19 @@
+{
+  "开发指南": [
+    {
+      "name": "index",
+      "path": "/",
+      "type": "pages"
+    },
+    {
+      "name": "guide",
+      "path": "/guide",
+      "desc": "介绍"
+    },
+    {
+      "name": "install",
+      "path": "/install",
+      "desc": "安装"
+    }
+  ]
+}
