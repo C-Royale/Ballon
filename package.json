@@ -3,7 +3,14 @@
   "version": "0.0.1",
   "description": "A Vue.js UI Library",
   "author": "my9074 <313231068@qq.com>",
-  "private": true,
+  "main": "dist/ballon.min.js",
+  "bugs": {
+    "url": "https://github.com/C-Royale/Ballon/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:C-Royale/Ballon.git"
+  },
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
@@ -101,5 +108,6 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "license": "MIT"
 }
