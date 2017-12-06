@@ -15,5 +15,23 @@
       "path": "/install",
       "desc": "安装"
     }
+  ],
+  "组件": [
+    {
+      "desc": "基础组件",
+      "path": "/component",
+      "items": [
+        {
+          "desc": "badge 标记",
+          "name": "badge",
+          "path": "/badge"
+        }
+      ]
+    },
+    {
+      "desc": "视图组件",
+      "path": "/component",
+      "items": []
+    }
   ]
 }
