@@ -3,6 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import demoBlock from './components/demo-block.vue'
+import Ballon from '@src/index'
+
+Vue.component('demo-block', demoBlock)
+Vue.use(Ballon)
 
 Vue.config.productionTip = false
 
