@@ -5,6 +5,15 @@
 const path = require('path')
 
 module.exports = {
+  dist: {
+    env: require('./prod.env'),
+    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+    productionSourceMap: true,
+    productionGzip: true,
+    productionGzipExtensions: ['js', 'css']
+  },
   dev: {
 
     // Paths
@@ -50,10 +59,10 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    index: path.resolve(__dirname, '../dist-docs/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsRoot: path.resolve(__dirname, '../dist-docs'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
 
