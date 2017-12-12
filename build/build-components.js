@@ -9,9 +9,9 @@ const path = require('path')
 const chalk = require('chalk')
 const webpack = require('webpack')
 const config = require('../config')
-const webpackConfig = require('./webpack.dist-docs.conf')
+const webpackConfig = require('./webpack.dist-components.conf')
 
-const spinner = ora('building for documents...')
+const spinner = ora('building for library single component...')
 spinner.start()
 
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
@@ -32,10 +32,6 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       process.exit(1)
     }
 
-    console.log(chalk.cyan('  Build documents complete.\n'))
-    console.log(chalk.yellow(
-      '  Tip: built files are meant to be served over an HTTP server.\n' +
-      '  Opening index.html over file:// won\'t work.\n'
-    ))
+    console.log(chalk.cyan('  Build components complete.\n'))
   })
 })

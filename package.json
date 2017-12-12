@@ -17,7 +17,7 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "build": "node build/build.js",
+    "build": "node build/build.js && node build/build-components.js",
     "build-docs": "node build/build-docs.js"
   },
   "dependencies": {
@@ -90,7 +90,8 @@
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "webpack-node-externals": "^1.5.4"
   },
   "peerDependencies": {
     "vue": "^2.5.2"
