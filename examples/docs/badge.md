@@ -5,16 +5,11 @@
 ### 基础用法
 展示新消息数量。
 
-<cr-badge>
-  测试测试
-</cr-badge>
-
-::: demo
+::: demo 这里填写描述
 ```html
 <cr-badge>
   测试测试
 </cr-badge>
-
 ```
 :::
 

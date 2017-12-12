@@ -3,43 +3,64 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const md = require('markdown-it')()
 const MarkdownItContainer = require('markdown-it-container')
 const striptags = require('./strip-tags')
+
+function convert(str) {
+  str = str.replace(/(&#x)(\w{4});/gi, function ($0) {
+    return String.fromCharCode(parseInt(encodeURIComponent($0).replace(/(%26%23x)(\w{4})(%3B)/g, '$2'), 16))
+  });
+  return str
+}
+
+let wrap = function (render) {
+  return function () {
+    return render.apply(this, arguments)
+      .replace('<code class="', '<code class="hljs ')
+      .replace('<code>', '<code class="hljs">')
+  }
+}
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
 const vueMarkdown = {
-  preprocess: (MarkdownIt, source) => {
+  preprocess: function (MarkdownIt, source) {
     MarkdownIt.renderer.rules.table_open = function () {
       return '<table class="table">'
     }
-    MarkdownIt.renderer.rules.fence = utils.wrapCustomClass(MarkdownIt.renderer.rules.fence)
-    const code_inline = MarkdownIt.renderer.rules.code_inline
-    MarkdownIt.renderer.rules.code_inline = function(...args){
-      args[0][args[1]].attrJoin('class', 'code_inline')
-      return code_inline(...args)
-    }
+    MarkdownIt.renderer.rules.fence = wrap(MarkdownIt.renderer.rules.fence)
     return source
   },
+  preventExtract: true,
   use: [
-    [MarkdownItContainer, 'demo', {
-      validate: params => params.trim().match(/^demo\s*(.*)$/),
-      render: function(tokens, idx) {
-        var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
-        if (tokens[idx].nesting === 1) {
-          var desc = tokens[idx + 2].content;
-          const html = utils.convertHtml(striptags(tokens[idx + 1].content, 'script'))
-          tokens[idx + 2].children = [];
+    [require('markdown-it-container'), 'demo', {
+      validate: function (params) {
+        return params.trim().match(/^demo\s*(.*)$/)
+      },
 
-          return `<demo-block>
-                        <div slot="desc">${html}</div>
-                        <div slot="highlight">`;
+      render: function (tokens, idx) {
+        var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/)
+        if (tokens[idx].nesting === 1) {
+          var description = (m && m.length > 1) ? m[1] : ''
+          var content = tokens[idx + 1].content
+          var html = convert(striptags.strip(content, ['script', 'style'])).replace(/(<[^>]*)=""(?=.*>)/g, '$1')
+          var descriptionHTML = description
+            ? md.render(description)
+            : ''
+
+
+          return `<demo-block class="demo-box">
+                    <div class="source" slot="source">${html}</div>
+                    ${descriptionHTML}
+                    <div class="highlight" slot="highlight">`
         }
-        return '</div></demo-block>\n';
+        return '</div></demo-block>\n'
       }
-    }]
+    }],
+    [require('markdown-it-container'), 'tip']
   ]
 }
 
