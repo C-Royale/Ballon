@@ -11,6 +11,7 @@ npm install ballon --save
 ``` javascript
 import Vue from 'vue'
 import Ballon from 'ballon'
+import 'ballon/dist/styles/ballon.css'
 
 Vue.use(Ballon)
 
@@ -47,8 +48,10 @@ TO DO...
 ## Library RoadMap
 
 * [x] 组件支持按需加载
-* [ ] 绑定 GitHub Page
+* [x] 添加样式目录结构
 * [ ] 添加自动化构建 Travis CI
+* [ ] 绑定 GitHub Page
+* [ ] 开发指南添加到 WIKI
 * [ ] 添加脚本自动化
 
 ## FAQ

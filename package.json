@@ -1,6 +1,6 @@
 {
   "name": "ballon",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Vue.js UI Library",
   "author": "my9074 <313231068@qq.com>",
   "main": "dist/ballon.min.js",
@@ -17,8 +17,9 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "build": "node build/build.js && node build/build-components.js",
-    "build-docs": "node build/build-docs.js"
+    "build:style": "gulp --gulpfile build/build-style.js",
+    "build:docs": "node build/build-docs.js",
+    "build": "npm run build:style && node build/build.js && node build/build-components.js"
   },
   "dependencies": {
     "vue": "^2.5.2",
@@ -36,6 +37,11 @@
     "markdown-it": "^8.1.1",
     "markdown-it-anchor": "^4.0.0",
     "markdown-it-container": "^2.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-less": "^3.3.2",
+    "gulp-rename": "^1.2.2",
     "chai": "^4.1.2",
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
