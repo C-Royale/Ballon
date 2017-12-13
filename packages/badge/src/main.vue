@@ -1,11 +1,18 @@
 <template>
-  <div>
+  <div :class="badgeStyle">
     <slot></slot>
   </div>
 </template>
 
 <script>
+const prefixCls = 'cr-badge'
+
 export default {
-  name: 'CrBadge'
+  name: 'CrBadge',
+  computed: {
+    badgeStyle () {
+      return `${prefixCls}`
+    }
+  }
 }
 </script>
