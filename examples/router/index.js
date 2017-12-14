@@ -4,7 +4,10 @@ import navConf from '../nav.config.json'
 
 Vue.use(Router)
 
-let routes = []
+let routes = [{
+  path: '/',
+  component: () => import('../pages/index.vue')
+}]
 
 Object.keys(navConf).forEach((item) => {
   routes = routes.concat(navConf[item])
@@ -15,18 +18,17 @@ let addRoutes = (router) => {
     if (route.items) {
       addRoutes(route.items)
       routes = routes.concat(route.items)
-    } else {
-      if (route.type === 'pages') {
-        route.component = r => require.ensure([], () =>
-          r(require(`../pages/${route.name}.vue`)))
-        return
-      }
-      route.component = r => require.ensure([], () =>
-        r(require(`../docs/${route.name}.md`)))
+    } else if (route.name) {
+      route.component = () => import(`../docs/${route.name}.md`)
     }
   })
 }
 addRoutes(routes)
+
+routes.push({
+  path: '*',
+  redirect: '/'
+})
 
 export default new Router({
   routes: routes
