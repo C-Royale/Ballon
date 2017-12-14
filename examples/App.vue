@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     isIndex () {
-      return this.$route.name === 'index'
+      return this.$route.path === '/'
     }
   }
 }
