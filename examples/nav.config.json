@@ -1,32 +1,55 @@
 {
-  "开发指南": [
+  "zh-CN": [
     {
-      "name": "guide",
-      "path": "/guide",
-      "desc": "介绍"
-    },
-    {
-      "name": "install",
-      "path": "/install",
-      "desc": "安装"
-    }
-  ],
-  "组件": [
-    {
-      "desc": "基础组件",
-      "path": "/component",
-      "items": [
+      "name": "开发指南",
+      "children": [
         {
-          "desc": "badge 标记",
-          "name": "badge",
-          "path": "/badge"
+          "path": "/guide",
+          "name": "介绍"
+        },
+        {
+          "path": "/install",
+          "name": "安装"
         }
       ]
     },
     {
-      "desc": "视图组件",
-      "path": "/component",
-      "items": []
+      "name": "GitHub",
+      "href": "https://github.com/C-Royale/Ballon"
+    },
+    {
+      "name": "基础组件",
+      "groups": [
+        {
+          "groupName": "Basic",
+          "list": []
+        },
+        {
+          "groupName": "Form",
+          "list": []
+        },
+        {
+          "groupName": "Data",
+          "list": [
+            {
+              "path": "/badge",
+              "title": "Badge 标记"
+            }
+          ]
+        },
+        {
+          "groupName": "Notice",
+          "list": []
+        },
+        {
+          "groupName": "Navigation",
+          "list": []
+        },
+        {
+          "groupName": "Others",
+          "list": []
+        }
+      ]
     }
   ]
 }
