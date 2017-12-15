@@ -3,10 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import demoBlock from './components/demo-block.vue'
+import demoBlock from './components/demo-block'
+import SideNav from './components/side-nav'
 import Ballon from '@src/index'
 
 Vue.component('demo-block', demoBlock)
+Vue.component('side-nav', SideNav)
 Vue.use(Ballon)
 
 Vue.config.productionTip = false

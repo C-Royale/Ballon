@@ -1,23 +1,33 @@
 <template>
   <div id="app">
     <div class="container">
-      <sideNav class="nav" v-if="!isIndex"></sideNav>
       <router-view class="view"></router-view>
     </div>
   </div>
 </template>
 
 <script>
-import sideNav from './components/side-nav'
-
 export default {
-  name: 'app',
-  components: {
-    sideNav
+  data () {
+    return {}
   },
   computed: {
-    isIndex () {
-      return this.$route.path === '/'
+    lang () {
+      return this.$route.path.split('/')[1] || 'zh-CN'
+    }
+  },
+  methods: {
+    localize () {
+      // TODO
+      // When the corresponding language switch is triggered
+    }
+  },
+  mounted () {
+    this.localize()
+  },
+  watch: {
+    lang () {
+      this.localize()
     }
   }
 }
