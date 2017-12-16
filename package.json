@@ -1,6 +1,6 @@
 {
   "name": "ballon",
-  "version": "0.0.3",
+  "version": "0.0.8",
   "description": "A Vue.js UI Library",
   "author": "my9074 <313231068@qq.com>",
   "main": "dist/ballon.min.js",
@@ -19,11 +19,11 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs",
     "build:style": "gulp --gulpfile build/build-style.js",
     "build:docs": "node build/build-docs.js",
-    "build": "npm run build:style && node build/build.js && node build/build-components.js"
+    "build:locale": "node build/build-locale.js",
+    "build": "npm run build:style && node build/build.js && node build/build-components.js && npm run build:locale"
   },
   "dependencies": {
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "deepmerge": "^1.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -90,6 +90,8 @@
     "sinon-chai": "^2.8.0",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
+    "vue": "^2.5.2",
+    "vue-router": "^3.0.1",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",

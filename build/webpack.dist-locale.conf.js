@@ -3,9 +3,9 @@ const path = require('path')
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
-const Components = require('../components.json')
 var nodeExternals = require('webpack-node-externals');
 const baseWebpackConfig = require('./webpack.base.conf')
+const entry = require('./locale');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -30,9 +30,6 @@ for (let i = 0; i < rules.length; i++) {
 // externals
 let externals = {};
 
-Object.keys(Components).forEach(function(key) {
-  externals[`ballon/packages/${key}`] = `ballon/dist/${key}`;
-});
 externals['ballon/src/locale'] = 'ballon/dist/locale';
 
 externals = [Object.assign({
@@ -47,10 +44,10 @@ let alias = {
 };
 
 let webpackConfig = {
-  entry: Components,
+  entry,
   externals: externals,
   output: {
-    path: config.dist.assetsRoot,
+    path: config.dist.assetsRoot + '/locale',
     filename: '[name].js',
     libraryTarget: 'commonjs2',
   },
