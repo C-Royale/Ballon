@@ -20,7 +20,7 @@
     "build:style": "gulp --gulpfile build/build-style.js",
     "build:docs": "node build/build-docs.js",
     "build:locale": "node build/build-locale.js",
-    "build": "npm run build:style && node build/build.js && node build/build-components.js && npm run build:locale"
+    "build": "node build/build.js && node build/build-components.js && npm run build:locale && npm run build:style"
   },
   "dependencies": {
     "deepmerge": "^1.5.2"

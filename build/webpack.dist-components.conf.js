@@ -33,18 +33,10 @@ let externals = {};
 Object.keys(Components).forEach(function(key) {
   externals[`ballon/packages/${key}`] = `ballon/dist/${key}`;
 });
-externals['ballon/src/locale'] = 'ballon/dist/locale';
 
 externals = [Object.assign({
   vue: 'vue'
 }, externals), nodeExternals()];
-
-// alias
-let alias = {
-  '@': resolve('examples'),
-  '@packages': resolve('packages'),
-  '@src': resolve('src')
-};
 
 let webpackConfig = {
   entry: Components,

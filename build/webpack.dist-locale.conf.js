@@ -36,13 +36,6 @@ externals = [Object.assign({
   vue: 'vue'
 }, externals), nodeExternals()];
 
-// alias
-let alias = {
-  '@': resolve('examples'),
-  '@packages': resolve('packages'),
-  '@src': resolve('src')
-};
-
 let webpackConfig = {
   entry,
   externals: externals,
