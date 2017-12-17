@@ -14,7 +14,7 @@ const webpackConfig = require('./webpack.dist.conf')
 const spinner = ora('building for library common...')
 spinner.start()
 
-rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
+rm(config.dist.assetsRoot, err => {
   if (err) throw err
   webpack(webpackConfig, (err, stats) => {
     spinner.stop()
