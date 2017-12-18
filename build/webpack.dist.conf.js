@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const config = require('../config')
 const baseWebpackConfig = require('./webpack.base.conf')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const externals = utils.generationExternals()
 
 let env = process.env.NODE_ENV === 'testing' ? require('../config/test.env') : config.dist.env
 
@@ -24,14 +25,7 @@ let webpackConfig = {
   entry: {
     app: './src/index.js'
   },
-  externals: {
-    vue: {
-      root: 'Vue',
-      commonjs: 'vue',
-      commonjs2: 'vue',
-      amd: 'vue'
-    }
-  },
+  externals: externals,
   output: {
     path: config.dist.assetsRoot,
     filename: 'ballon.min.js',

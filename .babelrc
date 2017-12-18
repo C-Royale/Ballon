@@ -1,8 +1,6 @@
 {
   "presets": [
-    ["env", {
-      "modules": false
-    }],
+    "es2015",
     "stage-2"
   ],
   "plugins": ["transform-runtime"],
@@ -10,6 +8,16 @@
     "test": {
       "presets": ["env", "stage-2"],
       "plugins": ["istanbul"]
+    },
+    "utils": {
+      "plugins": [
+        ["module-resolver", {
+          "root": ["ballon"],
+          "alias": {
+            "@src": "ballon/dist"
+          }
+        }]
+      ]
     }
   }
 }

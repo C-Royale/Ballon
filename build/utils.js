@@ -1,8 +1,12 @@
 'use strict'
+const fs = require('fs')
 const path = require('path')
 const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
+const Components = require('../components.json')
+const nodeExternals = require('webpack-node-externals')
+const mixinsList = fs.readdirSync(path.resolve(__dirname, '../src/mixins'))
 
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
@@ -30,7 +34,7 @@ exports.cssLoaders = function (options) {
   }
 
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
+  function generateLoaders(loader, loaderOptions) {
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
 
     if (loader) {
@@ -116,5 +120,23 @@ exports.wrapCustomClass = function (render) {
  */
 exports.convertHtml = function (str) {
   return str.replace(/(&#x)(\w{4});/gi, $0 => String.fromCharCode(parseInt(encodeURIComponent($0).replace(/(%26%23x)(\w{4})(%3B)/g, '$2'), 16)))
+}
+
+exports.generationExternals = function () {
+  let externals = {}
+
+  Object.keys(Components).forEach(function (key) {
+    externals[`ballon/packages/${key}`] = `ballon/dist/${key}`
+  })
+
+  externals['ballon/src/locale'] = 'ballon/dist/locale'
+  mixinsList.forEach(function (file) {
+    file = path.basename(file, '.js')
+    externals[`ballon/src/mixins/${file}`] = `ballon/dist/mixins/${file}`
+  });
+
+  return [Object.assign({
+    vue: 'vue'
+  }, externals), nodeExternals()]
 }
 
