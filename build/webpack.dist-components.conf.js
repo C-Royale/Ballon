@@ -3,15 +3,9 @@ const path = require('path')
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
-const Components = require('../components.json')
-var nodeExternals = require('webpack-node-externals');
 const baseWebpackConfig = require('./webpack.base.conf')
-
-function resolve(dir) {
-  return path.join(__dirname, '..', dir)
-}
-
-let env = process.env.NODE_ENV === 'testing' ? require('../config/test.env') : config.dist.env
+const Components = require('../components.json')
+const externals = utils.generationExternals()
 
 let rules = baseWebpackConfig.module.rules
 // find vue-loader and disable css source map & extract
@@ -26,17 +20,6 @@ for (let i = 0; i < rules.length; i++) {
     break
   }
 }
-
-// externals
-let externals = {};
-
-Object.keys(Components).forEach(function(key) {
-  externals[`ballon/packages/${key}`] = `ballon/dist/${key}`;
-});
-
-externals = [Object.assign({
-  vue: 'vue'
-}, externals), nodeExternals()];
 
 let webpackConfig = {
   entry: Components,
