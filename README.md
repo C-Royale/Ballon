@@ -49,8 +49,9 @@ TO DO...
 
 * [x] 组件支持按需加载
 * [x] 添加样式目录结构
+* [x] 支持国际化
 * [ ] 添加自动化构建 Travis CI
-* [ ] 绑定 GitHub Page
+* [x] 绑定 GitHub Page
 * [ ] 开发指南添加到 WIKI
 * [ ] 添加脚本自动化
 
