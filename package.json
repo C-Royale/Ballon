@@ -16,11 +16,12 @@
     "start": "npm run dev",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit/specs",
+    "lint": "eslint --ext .js,.vue src test/unit/specs packages --quiet",
     "build:style": "gulp --gulpfile build/build-style.js",
     "build:docs": "node build/build-docs.js",
     "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir dist --ignore src/index.js",
-    "build": "node build/build.js && node build/build-components.js && npm run build:utils && npm run build:style"
+    "build": "npm run lint && node build/build.js && node build/build-components.js && npm run build:utils && npm run build:style",
+    "deploy:docs": "node build/build-docs.js && gh-pages -d dist-docs --remote upstream"
   },
   "dependencies": {
     "deepmerge": "^1.5.2"
@@ -56,6 +57,7 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
+    "gh-pages": "^1.1.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-clean-css": "^2.0.13",
