@@ -1,5 +1,7 @@
 # Ballon
 [![Build Status](https://travis-ci.org/C-Royale/Ballon.svg?branch=master)](https://travis-ci.org/C-Royale/Ballon)
+[![NPM downloads](http://img.shields.io/npm/dm/ballon.svg)](https://npmjs.org/package/ballon)
+[![License](https://img.shields.io/npm/l/ballon.svg)](https://npmjs.org/package/ballon)
 
 > A Vue.js UI Library
 
@@ -51,7 +53,7 @@ TO DO...
 * [x] 组件支持按需加载
 * [x] 添加样式目录结构
 * [x] 支持国际化
-* [ ] 添加自动化构建 Travis CI
+* [x] 添加自动化构建 Travis CI
 * [x] 绑定 GitHub Page
 * [ ] 开发指南添加到 WIKI
 * [ ] 添加脚本自动化
