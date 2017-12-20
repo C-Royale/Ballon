@@ -1,6 +1,6 @@
 {
   "name": "ballon",
-  "version": "0.0.8-rc5",
+  "version": "0.0.9",
   "description": "A Vue.js UI Library",
   "author": "my9074 <313231068@qq.com>",
   "main": "dist/ballon.min.js",
@@ -16,7 +16,7 @@
     "start": "npm run dev",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit/specs packages --quiet",
+    "lint": "eslint --ext .js,.vue src test/unit/specs packages --quiet --fix",
     "build:style": "gulp --gulpfile build/build-style.js",
     "build:docs": "node build/build-docs.js",
     "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir dist --ignore src/index.js",
