@@ -123,20 +123,14 @@ exports.convertHtml = function (str) {
 }
 
 exports.generationExternals = function () {
-  let externals = {}
 
-  Object.keys(Components).forEach(function (key) {
-    externals[`ballon/packages/${key}`] = `ballon/dist/${key}`
-  })
+  return [{vue: 'vue'}, nodeExternals()]
+}
 
-  externals['ballon/src/locale'] = 'ballon/dist/locale'
-  mixinsList.forEach(function (file) {
-    file = path.basename(file, '.js')
-    externals[`ballon/src/mixins/${file}`] = `ballon/dist/mixins/${file}`
-  });
-
-  return [Object.assign({
-    vue: 'vue'
-  }, externals), nodeExternals()]
+exports.vue = {
+  root: 'Vue',
+  commonjs: 'vue',
+  commonjs2: 'vue',
+  amd: 'vue'
 }
 
