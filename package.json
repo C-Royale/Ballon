@@ -1,6 +1,6 @@
 {
   "name": "ballon",
-  "version": "0.0.9",
+  "version": "0.0.10-rc1",
   "description": "A Vue.js UI Library",
   "author": "my9074 <313231068@qq.com>",
   "main": "dist/ballon.min.js",

@@ -56,6 +56,7 @@ TO DO...
 * [x] 添加自动化构建 Travis CI
 * [x] 绑定 GitHub Page
 * [ ] 开发指南添加到 WIKI
+* [ ] 单元测试
 * [ ] 添加脚本自动化
 
 ## FAQ

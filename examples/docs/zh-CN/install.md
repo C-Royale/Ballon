@@ -50,7 +50,8 @@ npm install babel-plugin-component -D
   "plugins": ["transform-runtime", ["component", [
     {
       "libraryName": "ballon",
-      "libDir": "dist"
+      "libDir": "dist",
+      "style": false // 暂不支持样式按需加载
     }
   ]]]
 }
