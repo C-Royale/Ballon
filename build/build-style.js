@@ -5,14 +5,19 @@ const rename = require('gulp-rename');
 const autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('css', function () {
-    gulp.src('../packages/theme-default/index.less')
-        .pipe(less())
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions', 'ie > 8']
-        }))
-        .pipe(cleanCSS())
-        .pipe(rename('ballon.css'))
-        .pipe(gulp.dest('../dist/styles'));
+  gulp.src('../packages/theme-default/index.less')
+    .pipe(less())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions', 'ie > 8']
+    }))
+    .pipe(cleanCSS())
+    .pipe(rename('ballon.css'))
+    .pipe(gulp.dest('../dist/styles'));
 });
 
-gulp.task('default', ['css']);
+gulp.task('font', function () {
+  gulp.src('../packages/theme-default/fonts/*.*')
+    .pipe(gulp.dest('../dist/styles/fonts'));
+});
+
+gulp.task('default', ['css', 'font']);
