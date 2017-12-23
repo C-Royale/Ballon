@@ -5,13 +5,12 @@ const rename = require('gulp-rename');
 const autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('css', function () {
-  gulp.src('../packages/theme-default/index.less')
+  gulp.src(['../packages/theme-default/index.less', '../packages/theme-default/components/*.less'])
     .pipe(less())
     .pipe(autoprefixer({
       browsers: ['last 2 versions', 'ie > 8']
     }))
     .pipe(cleanCSS())
-    .pipe(rename('ballon.css'))
     .pipe(gulp.dest('../dist/styles'));
 });
 

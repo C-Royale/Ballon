@@ -17,6 +17,7 @@ npm install ballon -save
 ```javascript
 import Vue from 'vue'
 import Ballon from 'ballon'
+import 'ballon/dist/styles/index.css'
 import App from './App.vue'
 
 Vue.use(Ballon)
@@ -51,7 +52,10 @@ npm install babel-plugin-component -D
     {
       "libraryName": "ballon",
       "libDir": "dist",
-      "style": false // 暂不支持样式按需加载
+      "styleLibrary": {
+        "name": "styles",
+        "base": false
+      }
     }
   ]]]
 }
