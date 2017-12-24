@@ -1,6 +1,6 @@
 {
   "name": "ballon",
-  "version": "0.0.10-rc2",
+  "version": "0.0.10-rc3",
   "description": "A Vue.js UI Library",
   "author": "my9074 <313231068@qq.com>",
   "main": "dist/ballon.min.js",
@@ -113,11 +113,6 @@
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
