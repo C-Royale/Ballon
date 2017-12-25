@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/C-Royale/Ballon.svg?branch=master)](https://travis-ci.org/C-Royale/Ballon)
 [![NPM downloads](http://img.shields.io/npm/dm/ballon.svg)](https://npmjs.org/package/ballon)
 [![License](https://img.shields.io/npm/l/ballon.svg)](https://npmjs.org/package/ballon)
-[![Coverage Status](https://coveralls.io/repos/github/C-Royale/Ballon/badge.svg?branch=master)](https://coveralls.io/github/C-Royale/Ballon?branch=master)
+[![codecov](https://codecov.io/gh/C-Royale/Ballon/branch/master/graph/badge.svg)](https://codecov.io/gh/C-Royale/Ballon)
 
 > A Vue.js UI Library
 
