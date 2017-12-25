@@ -27,7 +27,7 @@ import {
 
 Vue.component(Badge)
 ```
-## 项目结构
+## Project Structure
 
 ```text
 ├── README.md
@@ -49,7 +49,7 @@ Vue.component(Badge)
 ## Changelog
 TO DO...
 
-## Library RoadMap
+## RoadMap
 
 * [x] 组件支持按需加载
 * [x] 添加样式目录结构
@@ -57,8 +57,11 @@ TO DO...
 * [x] 添加自动化构建 Travis CI
 * [x] 绑定 GitHub Page
 * [ ] 开发指南添加到 WIKI
-* [ ] 单元测试
+* [x] 单元测试
 * [ ] 添加脚本自动化
 
 ## FAQ
-TO DO...
+* [项目开发指南](https://github.com/C-Royale/Ballon/wiki)
+
+## License
+[MIT](http://opensource.org/licenses/MIT)
