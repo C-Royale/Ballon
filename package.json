@@ -1,6 +1,6 @@
 {
   "name": "ballon",
-  "version": "0.0.10-rc3",
+  "version": "0.0.10-rc4",
   "description": "A Vue.js UI Library",
   "author": "my9074 <313231068@qq.com>",
   "main": "dist/ballon.min.js",
@@ -41,6 +41,7 @@
     "chalk": "^2.0.1",
     "compression-webpack-plugin": "^1.0.0",
     "copy-webpack-plugin": "^4.0.1",
+    "coveralls": "^3.0.0",
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.0",
     "cz-conventional-changelog": "^2.1.0",
